@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAT APP</title>
+    <link rel="stylesheet" href="./chat.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside>
+            <div class="left-bar">
+                <h1>Chat App</h1>
+                <input type="text" id="search"><br>
+                <button id="search-button">Search</button>
+                <div class="friend-list" id="friends-list">
+                    <h2>Friends Connected</h2>
+                    <li id="user-name"><span><img id="user-image" src="./images.png" width="25px" height="25px" alt="image"></span>Maavia Asghar</li>
+                </div>
+            </div>
+        </aside>
+        <div class="right-bar">
+            <header>
+                <div class="welcome">
+                    <h1>Welcome to Web and Mobile Development Chat Room</h1>
+                </div>
+                <div class="user-info">
+                    <h2 id="displayName">Name</h2>
+                    <img id="displayImage" src="./images.png" width="80px" height="80px" alt="User Image">
+                </div>
+            </header>
+            <main>
+                <div class="messages" id="message-text">
+                </div>
+            </main>
+            <footer>
+                <form class="message-form" id="form-send">
+                    <input type="text" id="messages-list">
+                    <button type="submit" id="message-send">Send</button>
+                </form>
+            </footer>
+        </div>
+    </div>
+
+
+    <script src="./chat.js"></script>
+</body>
+
+</html>

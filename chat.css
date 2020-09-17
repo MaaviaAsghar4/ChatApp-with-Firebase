@@ -53,7 +53,7 @@ body{
 }
 
 .message-form input{
-    padding: 5px 5px 3px 5px;
+    padding: 10px 10px 3px 5px;
     border: 2px solid #273443;
     color: #273443;
     font-size: 1rem;
@@ -64,10 +64,12 @@ body{
 .message-form button{
     margin-left: 5px;
     border: none;
-    padding: 5px 5px;
+    padding: 10px 10px;
     font-size: 1rem;
     background-color: #273443;
     color: #f7f7f7;
+    border-radius: 0.3rem;
+    font-weight: bold;
 }
 
 /* sidebar styling */
@@ -90,13 +92,6 @@ body{
 
 input:focus, button:focus{
     outline: none;
-}
-
-#search-button{
-    border: 2px solid #f7f7f7;
-    padding: 5px 5px;
-    font-size: 1rem;
-    background-color: #f7f7f7;
 }
 
 .friend-list{
@@ -122,7 +117,25 @@ input:focus, button:focus{
     border-radius: 50%;
 }
 
+.welcome{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.welcome button{
+    margin-right: 10px;
+    border: none;
+    background-color: #273443;
+    color: #f7f7f7;
+    padding: 10px 5px 10px 5px;
+    border-radius: 0.3rem;
+    font-weight: bold;
+}
+
 .welcome h1{
+    margin: 10px 10px 10px 10px;
     text-align: center;
     font-size: 1.4rem;
 }
@@ -136,11 +149,11 @@ input:focus, button:focus{
     border-radius: 0.3rem;
 }
 
-/* @media screen and (max-width:768px) {
+@media screen and (max-width:768px) {
     .left-bar{
         display: none;
     }
     .right-bar{
         width: 100%;
     }
-} */
+}

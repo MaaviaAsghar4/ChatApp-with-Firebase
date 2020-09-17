@@ -6,6 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAT APP</title>
     <link rel="stylesheet" href="./chat.css">
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyAGORjQ6BTuTIIY5I78Vhqu2BFu3cxXb4Y",
+            authDomain: "chat-app-f6ff3.firebaseapp.com",
+            databaseURL: "https://chat-app-f6ff3.firebaseio.com",
+            projectId: "chat-app-f6ff3",
+            storageBucket: "chat-app-f6ff3.appspot.com",
+            messagingSenderId: "96696366292",
+            appId: "1:96696366292:web:94bb2d9fe399c62274f741",
+            measurementId: "G-R1LWH80S46"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
 </head>
 
 <body>
@@ -13,11 +29,8 @@
         <aside>
             <div class="left-bar">
                 <h1>Chat App</h1>
-                <input type="text" id="search"><br>
-                <button id="search-button">Search</button>
                 <div class="friend-list" id="friends-list">
                     <h2>Friends Connected</h2>
-                    <li id="user-name"><span><img id="user-image" src="./images.png" width="25px" height="25px" alt="image"></span>Maavia Asghar</li>
                 </div>
             </div>
         </aside>
@@ -25,6 +38,7 @@
             <header>
                 <div class="welcome">
                     <h1>Welcome to Web and Mobile Development Chat Room</h1>
+                    <button id="delete-user" onclick='signOut(this)'>SignOut</button>
                 </div>
                 <div class="user-info">
                     <h2 id="displayName">Name</h2>
@@ -33,6 +47,7 @@
             </header>
             <main>
                 <div class="messages" id="message-text">
+
                 </div>
             </main>
             <footer>

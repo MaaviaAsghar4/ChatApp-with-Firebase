@@ -8,15 +8,24 @@ const friendDelete = document.getElementById('delete-user');
 
 // Retrieving data from firebase
 firebase.database().ref('messages').on('child_added', userMessage => {
-    const container = document.createElement('div');
-    container.setAttribute('class', 'message-container');
-    container.innerHTML = `${userMessage.val().userId}: ${userMessage.val().message}`;
-    messageList.appendChild(container);
+    if (userMessage.val().userId === localStorage.getItem('dispName')) {
+        const container = document.createElement('div');
+        container.setAttribute('class', 'message-container-user');
+        container.innerHTML = `You: ${userMessage.val().message}`;
+        messageList.appendChild(container);
+    } else {
+        if (userMessage.val().userId !== localStorage.getItem('dispName')) {
+            const container = document.createElement('div');
+            container.setAttribute('class', 'message-container-other');
+            container.innerHTML = `${userMessage.val().userId}: ${userMessage.val().message}`;
+            messageList.appendChild(container);
+        }
+    }
 })
 
 firebase.database().ref('users').on('child_added', userDetails => {
     const friendList = document.createElement('li');
-    friendDelete.setAttribute('id',userDetails.val().key)
+    friendDelete.setAttribute('id', userDetails.val().key)
     friendList.innerHTML = userDetails.val().userId;
     friendsContainer.appendChild(friendList);
     // signOut(userDetails.val());
@@ -65,14 +74,13 @@ displayUser(userId, userImg);
 
 const signOut = (e) => {
     firebase.auth().signOut()
-    .then(function (provider) {
-        // Sign-out successful.
-        firebase.database().ref('users').child(e.id).remove();
-        window.location = 'login.html'
-    fire
-    })
-    .catch(function (error) {
-        // An error happened.
-        console.log(error)
-    });
+        .then(function (provider) {
+            // Sign-out successful.
+            firebase.database().ref('users').child(e.id).remove();
+            window.location = 'login.html'
+        })
+        .catch(function (error) {
+            // An error happened.
+            console.log(error)
+        });
 }
